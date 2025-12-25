@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CleanCity Garbage Reporting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #10b981, #059669);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #059669, #047857);
+        }
+
+        .register-bg {
+            background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+        }
+
+        .input-focus:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: linear-gradient(to right, #10b981, #059669);
+            width: 33%;
+            transition: width 0.3s ease;
+        }
+
+        .step-active {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .step-inactive {
+            background-color: #e5e7eb;
+            color: #6b7280;
+        }
+
+        .footer-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-trash-alt text-2xl"></i>
+                    <a href="index.html" class="text-xl font-bold">CleanCity</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="hover:text-green-200 font-medium py-2">Home</a>
+                    <a href="report.html" class="hover:text-green-200 font-medium py-2">Report</a>
+                    <a href="history.html" class="hover:text-green-200 font-medium py-2">History</a>
+                    <a href="blogs.html" class="hover:text-green-200 font-medium py-2">Blogs</a>
+                    <a href="contact.html" class="hover:text-green-200 font-medium py-2">Contact</a>
+                    <a href="login.html" class="hover:text-green-200 font-medium py-2">Login</a>
+                    <a href="register.html" class="font-medium py-2 active-nav">Register</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu (hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="hover:text-green-200 font-medium py-1">Home</a>
+                    <a href="report.html" class="hover:text-green-200 font-medium py-1">Report</a>
+                    <a href="history.html" class="hover:text-green-200 font-medium py-1">History</a>
+                    <a href="blogs.html" class="hover:text-green-200 font-medium py-1">Blogs</a>
+                    <a href="contact.html" class="hover:text-green-200 font-medium py-1">Contact</a>
+                    <a href="login.html" class="hover:text-green-200 font-medium py-1">Login</a>
+                    <a href="register.html" class="font-medium py-1 active-nav">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center p-4 register-bg">
+        <div class="w-full max-w-4xl form-card rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Progress Bar -->
+            <div class="gradient-bg p-4">
+                <div class="max-w-2xl mx-auto">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-white font-medium">Registration Progress</div>
+                        <div class="text-white font-medium">Step 1 of 3</div>
+                    </div>
+                    <div class="w-full bg-white/30 rounded-full h-2">
+                        <div class="progress-bar rounded-full"></div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="step-active w-10 h-10 rounded-full flex items-center justify-center font-bold mb-1">
+                                1</div>
+                            <div class="text-white text-sm font-medium">Account</div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="step-inactive w-10 h-10 rounded-full flex items-center justify-center font-bold mb-1">
+                                2</div>
+                            <div class="text-green-200 text-sm">Profile</div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="step-inactive w-10 h-10 rounded-full flex items-center justify-center font-bold mb-1">
+                                3</div>
+                            <div class="text-green-200 text-sm">Confirm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center space-x-2 mb-4">
+                        <i class="fas fa-trash-alt text-3xl text-green-600"></i>
+                        <h1 class="text-3xl font-bold text-gray-800">Join CleanCity</h1>
+                    </div>
+                    <p class="text-gray-600">Create your account to start reporting garbage issues in your community</p>
+                </div>
+
+                <form action="#" method="POST" class="space-y-6">
+                    <!-- Name Fields -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-user mr-2"></i>First Name
+                            </label>
+                            <input type="text" id="firstName" name="firstName" required
+                                placeholder="Enter your first name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-user mr-2"></i>Last Name
+                            </label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-envelope mr-2"></i>Email Address
+                        </label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none">
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-lock mr-2"></i>Password
+                        </label>
+                        <input type="password" id="password" name="password" required
+                            placeholder="Create a strong password"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none">
+                        <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-600 mr-2"></i>
+                                <span class="text-gray-600">At least 8 characters</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-600 mr-2"></i>
+                                <span class="text-gray-600">One uppercase letter</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-600 mr-2"></i>
+                                <span class="text-gray-600">One number</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-600 mr-2"></i>
+                                <span class="text-gray-600">One special character</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-lock mr-2"></i>Confirm Password
+                        </label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required
+                            placeholder="Re-enter your password"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none">
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-phone mr-2"></i>Phone Number (Optional)
+                        </label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none">
+                    </div>
+
+                    <!-- City -->
+                    <div>
+                        <label for="city" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-city mr-2"></i>City
+                        </label>
+                        <select id="city" name="city" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none">
+                            <option value="" disabled selected>Select your city</option>
+                            <option value="new-york">New York</option>
+                            <option value="los-angeles">Los Angeles</option>
+                            <option value="chicago">Chicago</option>
+                            <option value="houston">Houston</option>
+                            <option value="phoenix">Phoenix</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="flex items-start">
+                        <input type="checkbox" id="terms" name="terms" required
+                            class="h-4 w-4 mt-1 text-green-600 border-gray-300 rounded">
+                        <label for="terms" class="ml-2 text-sm text-gray-700">
+                            I agree to the
+                            <a href="#" class="text-green-600 hover:text-green-800 font-medium">Terms of Service</a>
+                            and
+                            <a href="#" class="text-green-600 hover:text-green-800 font-medium">Privacy Policy</a>.
+                            I understand that my reports will be public to help coordinate cleanup efforts.
+                        </label>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="flex items-start">
+                        <input type="checkbox" id="newsletter" name="newsletter"
+                            class="h-4 w-4 mt-1 text-green-600 border-gray-300 rounded">
+                        <label for="newsletter" class="ml-2 text-sm text-gray-700">
+                            Yes, I want to receive newsletters and updates about cleanup activities in my area.
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="w-full btn-primary text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                        <i class="fas fa-user-plus mr-2"></i>Create Account
+                    </button>
+
+                    <!-- Already have account -->
+                    <div class="text-center mt-6">
+                        <p class="text-gray-600">
+                            Already have an account?
+                            <a href="login.html" class="text-green-600 hover:text-green-800 font-bold ml-1">Sign in
+                                here</a>
+                        </p>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="relative my-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Or register quickly with</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Registration -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#"
+                            class="flex items-center justify-center py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                            <i class="fab fa-google text-red-600 mr-2"></i>
+                            <span>Google</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                            <i class="fab fa-facebook text-blue-600 mr-2"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </form>
+
+                <!-- Benefits Section -->
+                <div class="mt-10 p-6 bg-green-50 border border-green-200 rounded-lg">
+                    <h3 class="text-lg font-bold text-green-800 mb-4">
+                        <i class="fas fa-gift mr-2"></i>Benefits of Joining CleanCity
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-green-800">Report Garbage Issues</h4>
+                                <p class="text-sm text-green-700">Quickly report garbage accumulation in your
+                                    neighborhood.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-green-800">Track Resolution Status</h4>
+                                <p class="text-sm text-green-700">Monitor the progress of your reports until they're
+                                    resolved.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-green-800">Earn Reward Points</h4>
+                                <p class="text-sm text-green-700">Get points for valid reports and redeem for
+                                    eco-friendly products.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-green-800">Join Cleanup Events</h4>
+                                <p class="text-sm text-green-700">Get notified about community cleanup events in your
+                                    area.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-trash-alt text-2xl"></i>
+                        <h3 class="text-xl font-bold">CleanCity</h3>
+                    </div>
+                    <p class="text-gray-300">Join our mission to create cleaner, healthier cities.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Home</a></li>
+                        <li><a href="report.html" class="text-gray-300 hover:text-white">Report Garbage</a></li>
+                        <li><a href="blogs.html" class="text-gray-300 hover:text-white">Blogs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 CleanCity. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu functionality -->
+    <style>
+        #mobile-menu-button:focus+#mobile-menu,
+        #mobile-menu:hover {
+            display: block;
+        }
+    </style>
+</body>
+
+</html>

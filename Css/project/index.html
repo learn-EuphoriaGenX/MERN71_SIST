@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCity - Garbage Reporting System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #10b981, #059669);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #059669, #047857);
+        }
+
+        .report-icon {
+            color: #10b981;
+        }
+
+        .history-icon {
+            color: #3b82f6;
+        }
+
+        .blog-icon {
+            color: #8b5cf6;
+        }
+
+        .contact-icon {
+            color: #f59e0b;
+        }
+
+        .footer-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .active-nav {
+            border-bottom: 3px solid #10b981;
+        }
+
+        .page-transition {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-trash-alt text-2xl"></i>
+                    <a href="index.html" class="text-xl font-bold">CleanCity</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="hover:text-green-200 font-medium py-2">Home</a>
+                    <a href="report.html" class="hover:text-green-200 font-medium py-2">Report</a>
+                    <a href="history.html" class="hover:text-green-200 font-medium py-2">History</a>
+                    <a href="blogs.html" class="hover:text-green-200 font-medium py-2">Blogs</a>
+                    <a href="contact.html" class="hover:text-green-200 font-medium py-2">Contact</a>
+                    <a href="login.html" class="hover:text-green-200 font-medium py-2">Login</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu (hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="hover:text-green-200 font-medium py-1">Home</a>
+                    <a href="report.html" class="hover:text-green-200 font-medium py-1">Report</a>
+                    <a href="history.html" class="hover:text-green-200 font-medium py-1">History</a>
+                    <a href="blogs.html" class="hover:text-green-200 font-medium py-1">Blogs</a>
+                    <a href="contact.html" class="hover:text-green-200 font-medium py-1">Contact</a>
+                    <a href="login.html" class="hover:text-green-200 font-medium py-1">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8 page-transition">
+        <!-- Content will be loaded here based on the page -->
+        <!-- Home Page Content (index.html) -->
+        <div id="home-content">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Report Garbage, Keep Our City Clean</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Help us maintain a clean and healthy environment by
+                    reporting garbage issues in your neighborhood. Together we can make a difference.</p>
+                <div class="mt-8">
+                    <a href="report.html"
+                        class="btn-primary text-white font-medium py-3 px-8 rounded-lg shadow-lg hover:shadow-xl inline-block">Report
+                        Now</a>
+                    <a href="register.html"
+                        class="ml-4 bg-gray-800 text-white font-medium py-3 px-8 rounded-lg shadow-lg hover:bg-gray-900 inline-block">Join
+                        Us</a>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
+                    <div class="report-icon text-5xl mb-4">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">1,250+</h3>
+                    <p class="text-gray-600">Garbage Reports Resolved</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
+                    <div class="history-icon text-5xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">850+</h3>
+                    <p class="text-gray-600">Active Volunteers</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
+                    <div class="blog-icon text-5xl mb-4">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">25+</h3>
+                    <p class="text-gray-600">Cities Covered</p>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-10">How It Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="gradient-bg text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl mr-4">
+                                1</div>
+                            <h3 class="text-xl font-bold text-gray-800">Report Garbage</h3>
+                        </div>
+                        <p class="text-gray-600">Take a photo of garbage accumulation and submit a report with location
+                            details.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="gradient-bg text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl mr-4">
+                                2</div>
+                            <h3 class="text-xl font-bold text-gray-800">We Verify</h3>
+                        </div>
+                        <p class="text-gray-600">Our team verifies the report and assigns it to the appropriate cleaning
+                            crew.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="gradient-bg text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl mr-4">
+                                3</div>
+                            <h3 class="text-xl font-bold text-gray-800">Cleanup Done</h3>
+                        </div>
+                        <p class="text-gray-600">The area is cleaned and you receive a confirmation with before/after
+                            photos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Recent Cleanup Activities</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Location</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Reported On</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Status</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Cleaned On</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Central Park Area</td>
+                                <td class="px-6 py-4 whitespace-nowrap">May 10, 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><span
+                                        class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">Cleaned</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">May 12, 2023</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Downtown Market</td>
+                                <td class="px-6 py-4 whitespace-nowrap">May 8, 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><span
+                                        class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">Cleaned</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">May 10, 2023</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Riverside Walkway</td>
+                                <td class="px-6 py-4 whitespace-nowrap">May 5, 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><span
+                                        class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">In
+                                        Progress</span></td>
+                                <td class="px-6 py-4 whitespace-nowrap">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-trash-alt text-2xl"></i>
+                        <h3 class="text-xl font-bold">CleanCity</h3>
+                    </div>
+                    <p class="text-gray-300">Making our cities cleaner, one report at a time. Join our community to help
+                        maintain a healthy environment.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Home</a></li>
+                        <li><a href="report.html" class="text-gray-300 hover:text-white">Report Garbage</a></li>
+                        <li><a href="history.html" class="text-gray-300 hover:text-white">Report History</a></li>
+                        <li><a href="blogs.html" class="text-gray-300 hover:text-white">Blogs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                    </div>
+                    <p class="mt-4 text-gray-300">Subscribe to our newsletter</p>
+                    <form class="mt-2">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email"
+                                class="px-4 py-2 rounded-l-lg text-gray-800 w-full">
+                            <button type="submit" class="gradient-bg px-4 py-2 rounded-r-lg font-medium">Join</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 CleanCity. All rights reserved. | Made with <i class="fas fa-heart text-red-500"></i> for
+                    a cleaner planet</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu functionality (simple CSS toggle without JS) -->
+    <style>
+        #mobile-menu-button:focus+#mobile-menu,
+        #mobile-menu:hover {
+            display: block;
+        }
+    </style>
+</body>
+
+</html>
