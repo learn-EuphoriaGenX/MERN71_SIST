@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Document Object Model</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="m-10">
+    <button type='button' id="new-meeting-btn" onclick="handleClickMeetingButton()"
+        class='py-2.5 px-6 text-sm bg-indigo-500 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-indigo-700'>New
+        Meeting</button>
+
+    <div class="flex flex-col bg-gray-200 w-70 rounded-xl overflow-hidden cursor-pointer hidden "
+        id="metting-type-container">
+        <div onclick="handleClickmeetingCancleBtn()" id="cross-metting-type-container-btn"
+            class="flex items-end justify-end pr-4 pt-4">
+            ❌
+        </div>
+        <div class="hover:bg-gray-300 font-semibold px-4 py-2 ">Create a meeting for later</div>
+        <div class="hover:bg-gray-300 font-semibold px-4 py-2">Start an instant meeting</div>
+        <div class="hover:bg-gray-300 font-semibold px-4 py-2">Schedule in Google Calender</div>
+    </div>
+
+
+    <script>
+        let meetingBtn = document.getElementById('new-meeting-btn')
+        let meetingCancleBtn = document.getElementById('cross-metting-type-container-btn')
+        let meetingTypeContainer = document.getElementById('metting-type-container')
+
+        let handleClickMeetingButton = () => {
+            meetingTypeContainer.classList.remove('hidden')
+        }
+        let handleClickmeetingCancleBtn = () => {
+            meetingTypeContainer.classList.add('hidden')
+        }
+
+        // meetingBtn.addEventListener('click', handleClickMeetingButton)
+        // meetingCancleBtn.addEventListener('click', handleClickmeetingCancleBtn)
+
+
+    </script>
+</body>
+
+</html>
