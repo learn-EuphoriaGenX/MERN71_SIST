@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,30 +31,37 @@ function Navbar() {
                     </div>
 
                     <div className="hidden lg:flex space-x-8">
-                        <a href="#home" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                        <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
                             HOME
-                        </a>
-                        <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                        </Link>
+                        <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
                             ABOUT
-                        </a>
-                        <a href="#services" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                        </Link>
+                        <Link to="/services" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
                             SERVICES
-                        </a>
-                        <a href="#pages" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
-                            PAGES
-                        </a>
-                        <a href="#news" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
-                            NEWS
-                        </a>
-                        <a href="#contact" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                        </Link>
+                        <Link to="/doctors" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                            DOCTORS
+                        </Link>
+                        <Link to="/blogs" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                            BLOGS
+                        </Link>
+                        <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
                             CONTACT
-                        </a>
+                        </Link>
                     </div>
 
-                    <div className="hidden lg:block">
-                        <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition duration-300 shadow-md">
-                            APPOINTMENT
-                        </button>
+                    <div className="hidden lg:flex space-x-4">
+                        <Link to={"/login"}>
+                            <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition duration-300 shadow-md">
+                                LOGIN
+                            </button>
+                        </Link>
+                        <Link to={"/register"}>
+                            <button className="border text-blue-600 px-6 py-3 rounded-md font-medium  transition duration-300 shadow-md">
+                                REGISTER
+                            </button>
+                        </Link>
                     </div>
 
                     <button
