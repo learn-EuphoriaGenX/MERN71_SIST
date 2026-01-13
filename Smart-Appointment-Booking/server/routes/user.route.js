@@ -5,16 +5,16 @@ const upload = require('../middleware/upload.middleware')
 let route = express.Router()
 
 
-route.get("/doctor/login", DoctorLogin)
-route.get("/doctor/register", upload.single("profilePic"), DoctorRegister)
+route.post("/doctor/login", DoctorLogin)
+route.post("/doctor/register", upload.single("profilePic"), DoctorRegister)
 route.get("/doctor/profile", authMiddleware('doctor'), DoctorProfile)
 
-route.get("/patient/login", PatientLogin)
-route.get("/patient/register", upload.single("profilePic"), PatientRegister)
+route.post("/patient/login", PatientLogin)
+route.post("/patient/register", upload.single("profilePic"), PatientRegister)
 route.get("/patient/profile", authMiddleware('patient'), PatientProfile)
 
-route.get("/admin/login", AdminLogin)
-route.get("/admin/register", AdminRegister)
+route.post("/admin/login", AdminLogin)
+route.post("/admin/register", AdminRegister)
 route.get("/admin/profile", authMiddleware('admin'), AdminProfile)
 
 
