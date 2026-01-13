@@ -21,6 +21,8 @@ let DoctorRegister = async (req, res) => {
         await newDoctor.save();
         res.status(201).json({ message: "Doctor registered successfully", success: true });
     } catch (error) {
+        console.log(error);
+
         res.status(500).json({ message: "Internal Server Problem", success: false });
     }
 }
