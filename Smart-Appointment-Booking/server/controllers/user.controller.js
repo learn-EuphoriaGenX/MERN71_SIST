@@ -57,7 +57,7 @@ let DoctorProfile = async (req, res) => {
     try {
         let userId = req.user.userId;
         let user = await User.findById(userId).select('-password');
-        res.status(200).json({ success: true, message: "Patient profile fetched successfully", user, token: req.token });
+        res.status(200).json({ success: true, message: "Doctor profile fetched successfully", user, token: req.token });
     } catch (error) {
         res.status(500).json({ success: false, message: "Internal Server Problem" });
     }
@@ -117,7 +117,7 @@ let PatientProfile = async (req, res) => {
     try {
         let userId = req.user.userId;
         let user = await User.findById(userId).select('-password');
-        res.status(200).json({ success: true, message: "Doctor profile fetched successfully", user, token: req.token });
+        res.status(200).json({ success: true, message: "Patient profile fetched successfully", user, token: req.token });
     } catch (error) {
         res.status(500).json({ success: false, message: "Internal Server Problem" });
     }

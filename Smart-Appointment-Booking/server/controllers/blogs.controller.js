@@ -35,6 +35,8 @@ let createBlog = async (req, res) => {
         await newBlog.save();
         res.status(201).json({ success: true, message: "Blog created successfully", blog: newBlog });
     } catch (error) {
+        console.log(error);
+
         res.status(500).json({ success: false, message: "Internal Server Problem" });
     }
 }
