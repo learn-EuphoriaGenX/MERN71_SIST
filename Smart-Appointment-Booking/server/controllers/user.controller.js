@@ -127,6 +127,7 @@ let PatientProfile = async (req, res) => {
 // Admin
 let AdminRegister = async (req, res) => {
     try {
+
         const { name, email, password } = req.body;
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -142,6 +143,8 @@ let AdminRegister = async (req, res) => {
         await newAdmin.save();
         res.status(201).json({ message: "Admin registered successfully", success: true });
     } catch (error) {
+        console.log(error);
+
         res.status(500).json({ message: "Internal Server Problem", success: false });
     }
 }

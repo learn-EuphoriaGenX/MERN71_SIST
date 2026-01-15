@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-function Navbar() {
+function Navbar({ setUser, user }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
+
+    let navigate = useNavigate()
+
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('role')
+        setUser({})
+        navigate('/login')
+        toast.success("User Logout successfully")
+
+    }
 
     return (
         <nav className="bg-white shadow-md">
@@ -49,19 +61,40 @@ function Navbar() {
                         <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
                             CONTACT
                         </Link>
+                        {
+                            user.role && user.role === "admin" && <Link to="/upload" className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                                UPLOAD
+                            </Link>
+                        }
                     </div>
+                    {user?.role && (
+                        <span className="flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                            <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                            {user.name}
+                            <span className="text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full">
+                                {user.role}
+                            </span>
+                        </span>
+                    )}
 
                     <div className="hidden lg:flex space-x-4">
-                        <Link to={"/login"}>
-                            <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition duration-300 shadow-md">
-                                LOGIN
-                            </button>
-                        </Link>
-                        <Link to={"/register"}>
-                            <button className="border text-blue-600 px-6 py-3 rounded-md font-medium  transition duration-300 shadow-md">
-                                REGISTER
-                            </button>
-                        </Link>
+                        {
+                            user.role ?
+                                <button onClick={handleLogout} className="bg-red-600 text-white px-6 py-3 rounded-md font-medium hover:bg-red-700 transition duration-300 shadow-md">
+                                    LOGOUT
+                                </button> : <>
+                                    <Link to={"/login"}>
+                                        <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition duration-300 shadow-md">
+                                            LOGIN
+                                        </button>
+                                    </Link>
+                                    <Link to={"/register"}>
+                                        <button className="border text-blue-600 px-6 py-3 rounded-md font-medium  transition duration-300 shadow-md">
+                                            REGISTER
+                                        </button>
+                                    </Link>
+                                </>
+                        }
                     </div>
 
                     <button
